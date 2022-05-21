@@ -22,18 +22,19 @@ function App() {
         <div>
           <h1 className="doNotRemoveMe">Hello world.</h1>
           {/* ^ Do not remove this element ^ */}
-         <h1>My Recipes</h1>
-         <button onClick={(e) => setLanding(false)} >Add Recipe</button>
        {recipeName.trim() === ""? 
-                <h2>There are no recipes to list</h2>
+         <h1>My Recipes There are no recipes to list</h1>
 
        :
        <div>
+         <h1>My Recipes</h1>
 
        <li>{recipeName}</li>
        <li>{recipeIns}</li>
        </div>
        }
+         <button onClick={(e) => setLanding(false)} >Add Recipe</button>
+
         </div>
       );
     
