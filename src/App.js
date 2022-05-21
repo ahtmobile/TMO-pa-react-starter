@@ -27,9 +27,8 @@ function App() {
 
        :
        <div>
-         <h1>My Recipes</h1>
+         <h1>My Recipes {recipeName}</h1>
 
-       <li>{recipeName}</li>
        <li>{recipeIns}</li>
        </div>
        }
@@ -50,11 +49,11 @@ function App() {
        <h1>My Recipes</h1>
        <form onSubmit={handleSubmit}  >
   <label>
-    Recipe Name:
+  recipe-name:
       <input type="text" name="recipe-name" onBlur={(e) => setRecipeName(localStorage.setItem('rn',e.target.value))} />
     </label>
     <label>
-    Recipe instructions:
+    recipe-instructions:
       <input type="text" name="recipe-instructions" onChange={(e) => setrecipeIns(localStorage.setItem('rs',e.target.value))} />
     </label>
 
