@@ -2,16 +2,17 @@ import './App.css';
 import React, {useState,useEffect} from 'react';
 
 function App() {
-  const [isLanding, setLanding] = React.useState(true);
-  const [recipeName, setRecipeName] = React.useState("");
-  const [recipeIns, setrecipeIns] = React.useState("");
+  const [isLanding, setLanding] = useState(true);
+  const [recipeName, setRecipeName] = useState("");
+  const [recipeIns, setrecipeIns] = useState("");
   const handleSubmit = (evt) =>{
     console.log(evt.target)
     setLanding(false);
   }
   useEffect(() => {
-  if(localStorage.getItem('rn')) {
+  if(localStorage.getItem('rn') && localStorage.getItem('rs')) {
     setRecipeName(localStorage.getItem('rn'));
+    setrecipeIns(localStorage.getItem('rs'));
   }
 }, []);
   if(isLanding){
@@ -27,7 +28,11 @@ function App() {
                 <h2>There are no recipes to list</h2>
 
        :
+       <div>
+
        <li>{recipeName}</li>
+       <li>{recipeIns}</li>
+       </div>
        }
         </div>
       );
@@ -49,7 +54,7 @@ function App() {
     </label>
     <label>
     Recipe instructions:
-      <input type="text" name="recipe-instructions" onChange={(e) => setrecipeIns(e.target.value)} />
+      <input type="text" name="recipe-instructions" onChange={(e) => setrecipeIns(localStorage.setItem('rs',e.target.value))} />
     </label>
 
     <input type="submit" value="Submit" onSubmit={(e) => setLanding(false)}/>
